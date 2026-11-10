@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mess loaders</title>
+<style>
+:root{--ink:#121212;--lime:#D5E07C;--orange:#FF6B1A;--violet:#7C4DFF;--cream:#FBF3E6;--paper:#FFFBF3}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);font-family:system-ui,sans-serif;color:var(--ink);padding:24px 16px}
+h1{font:900 26px/1 "Arial Black",system-ui;margin:0 0 4px}p.l{margin:0 0 20px;color:#555;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;max-width:1100px}
+.card{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:18px}
+.stage{height:150px;display:grid;place-items:center;border:2px dashed #cbbfa8;border-radius:10px;margin-bottom:12px;overflow:hidden}
+.n{font:900 15px "Arial Black",system-ui}.d{font-size:13px;color:#555;margin-top:4px;line-height:1.4}
+.tag{display:inline-block;font-size:11px;font-weight:700;border:1.5px solid var(--ink);border-radius:99px;padding:2px 8px;margin-top:8px;background:var(--lime)}
+
+/* 1 thali fill */
+.thali{width:96px;height:96px;border-radius:50%;border:3px solid var(--ink);background:#e8e1d3;position:relative;box-shadow:4px 4px 0 var(--ink)}
+.thali i{position:absolute;width:26px;height:26px;border-radius:50%;border:2.5px solid var(--ink);transform:scale(0);animation:pop 2.4s infinite}
+.thali i:nth-child(1){top:12px;left:16px;background:var(--orange)}
+.thali i:nth-child(2){top:12px;right:16px;background:var(--lime);animation-delay:.3s}
+.thali i:nth-child(3){bottom:12px;left:16px;background:var(--violet);animation-delay:.6s}
+.thali i:nth-child(4){bottom:12px;right:16px;background:#fff;animation-delay:.9s}
+@keyframes pop{0%,8%{transform:scale(0)}18%,80%{transform:scale(1)}90%,100%{transform:scale(0)}}
+
+/* 2 stamp */
+.stamp{font:900 22px "Arial Black",system-ui;border:3px solid var(--ink);padding:8px 14px;background:var(--lime);box-shadow:4px 4px 0 var(--ink);animation:stamp 1.2s infinite}
+@keyframes stamp{0%{transform:translateY(-30px) rotate(-8deg);opacity:0}25%{transform:translateY(0) rotate(-4deg);opacity:1;box-shadow:4px 4px 0 var(--ink)}35%{transform:translate(2px,2px) rotate(-4deg);box-shadow:1px 1px 0 var(--ink)}80%{transform:translateY(0) rotate(-4deg);opacity:1}100%{opacity:0;transform:rotate(-4deg)}}
+
+/* 3 steam */
+.pot{position:relative;width:90px;height:110px}
+.pot b{position:absolute;bottom:0;left:5px;width:80px;height:46px;background:var(--orange);border:3px solid var(--ink);border-radius:0 0 26px 26px;box-shadow:4px 4px 0 var(--ink)}
+.pot b:before{content:"";position:absolute;top:-10px;left:-10px;right:-10px;height:8px;background:var(--ink);border-radius:4px}
+.pot s{position:absolute;bottom:56px;width:8px;height:34px;border-left:3.5px solid var(--ink);border-radius:50%;opacity:0;animation:steam 1.6s infinite}
+.pot s:nth-of-type(1){left:24px}.pot s:nth-of-type(2){left:42px;animation-delay:.4s}.pot s:nth-of-type(3){left:60px;animation-delay:.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px) scaleY(.6)}40%{opacity:1}100%{opacity:0;transform:translateY(-16px) scaleY(1.1) skewX(-10deg)}}
+
+/* 4 receipt print */
+.rc{width:120px;height:120px;position:relative;overflow:hidden}
+.rc .slot{position:absolute;top:0;left:0;right:0;height:14px;background:var(--ink);border-radius:6px;z-index:2}
+.rc .paper{position:absolute;top:6px;left:12px;right:12px;background:#fff;border:2.5px solid var(--ink);border-top:0;padding:14px 10px 8px;animation:print 2s infinite steps(8)}
+.rc .paper i{display:block;height:6px;background:var(--ink);margin-bottom:7px;border-radius:2px}
+.rc .paper i:nth-child(2){width:70%}.rc .paper i:nth-child(3){width:85%;background:var(--orange)}.rc .paper i:nth-child(4){width:50%}
+@keyframes print{0%{transform:translateY(-100%)}70%,100%{transform:translateY(0)}}
+
+/* 5 sticker peel (button) */
+.btn{font:800 15px system-ui;background:var(--ink);color:#fff;border:0;border-radius:10px;padding:14px 22px;box-shadow:4px 4px 0 var(--orange);display:flex;gap:10px;align-items:center}
+.dots{display:flex;gap:5px}.dots i{width:9px;height:9px;background:var(--lime);border:1.5px solid #fff;animation:hop .8s infinite}
+.dots i:nth-child(2){animation-delay:.12s;background:var(--orange)}.dots i:nth-child(3){animation-delay:.24s;background:var(--violet)}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+
+/* 6 checker wipe (subtle tier) */
+.bar{width:200px;height:16px;border:2px solid var(--ink);border-radius:5px;overflow:hidden;background:#fff}
+.bar i{display:block;height:100%;width:40%;background:repeating-conic-gradient(var(--ink) 0 25%,#fff 0 50%) 0 0/8px 8px;animation:slide 1.2s infinite ease-in-out}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
+</style></head><body>
+<h1>Loader options</h1><p class="l">Six loaders in THE MESS. style. Pick the ones you like.</p>
+<div class="grid">
+<div class="card"><div class="stage"><div class="thali"><i></i><i></i><i></i><i></i></div></div><div class="n">1 · Thali fills up</div><div class="d">The plate's bowls pop in one by one, then empty and repeat. Main page loader for students.</div><span class="tag">Student · page</span></div>
+<div class="card"><div class="stage"><div class="stamp">THE MESS.</div></div><div class="n">2 · Logo stamp</div><div class="d">The sticker logo drops in and gets stamped down. Full-screen loader when the app opens.</div><span class="tag">Full screen</span></div>
+<div class="card"><div class="stage"><div class="pot"><s></s><s></s><s></s><b></b></div></div><div class="n">3 · Steaming pot</div><div class="d">Steam rises from the kadhai. Fits the cook-for and menu screens.</div><span class="tag">Kitchen / menu</span></div>
+<div class="card"><div class="stage"><div class="rc"><div class="slot"></div><div class="paper"><i></i><i></i><i></i><i></i></div></div></div><div class="n">4 · Receipt printing</div><div class="d">A coupon receipt feeds out of a slot. For buying coupons and the wallet.</div><span class="tag">Coupons</span></div>
+<div class="card"><div class="stage"><button class="btn">Buying <span class="dots"><i></i><i></i><i></i></span></button></div><div class="n">5 · Busy button</div><div class="d">Mini hopping squares inside the button, with a verb like "Buying" or "Sending". Fixes the no-feedback gap.</div><span class="tag">All buttons</span></div>
+<div class="card"><div class="stage"><div class="bar"><i></i></div></div><div class="n">6 · Checker strip</div><div class="d">A thin checkerboard sweep. Quiet enough for staff, society and admin screens.</div><span class="tag">Subtle tier</span></div>
+</div></body></html>

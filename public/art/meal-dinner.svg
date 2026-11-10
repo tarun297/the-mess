@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><defs>
+    <pattern id="mi-ht" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="3" cy="3" r="1.3" fill="#141414"></circle></pattern>
+  </defs><g stroke="#141414" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <circle cx="60" cy="60" r="56" fill="#22303F"></circle>
+      <path d="M88 20a10 10 0 1 0 8 16a13 13 0 1 1 -8 -16z" fill="#FFC94A" stroke-width="3"></path>
+      <circle cx="28" cy="30" r="2.5" fill="#FFFDF8" stroke="none"></circle>
+      <circle cx="40" cy="20" r="2" fill="#FFFDF8" stroke="none"></circle>
+      <ellipse cx="62" cy="102" rx="34" ry="6" fill="#141414" stroke="#FFFDF8" stroke-width="0"></ellipse>
+      <path d="M30 56C24 86 40 100 60 100C80 100 96 86 90 56Z" fill="#FF6B1A" stroke="#141414"></path>
+      <path d="M78 96C90 88 94 74 90 58C94 74 90 88 78 96Z" fill="url(#mi-ht)" stroke="none" opacity="0.5"></path>
+      <path d="M32 70C46 76 74 76 88 70" fill="none" stroke="#F2B134" stroke-width="6"></path>
+      <rect x="24" y="48" width="72" height="9" rx="4.5" fill="#FFFDF8" stroke="#141414"></rect>
+      <path d="M38 48C40 38 80 38 82 48Z" fill="#9FAAB4" stroke="#141414"></path>
+      <rect x="54" y="32" width="12" height="8" rx="4" fill="#FFFDF8" stroke="#141414"></rect>
+      <path d="M46 28c-5 -7 5 -10 0 -18M62 24c-5 -7 5 -10 0 -18" fill="none" stroke="#FFFDF8" stroke-width="4"></path>
+    </g></svg>
