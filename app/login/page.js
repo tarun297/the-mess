@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSignInMutation, problemText } from '@/store/api';
+import { useDispatch } from 'react-redux';
+import { messApi, useSignInMutation, problemText } from '@/store/api';
 import { ROLES, MEAL_SLOTS, STARTING_RULES } from '@/server/catalog';
 import { Logo, Grain, Art, Problem, Icon, Busy } from '@/components/kit';
 
@@ -22,6 +23,7 @@ const SAMPLES = [
 
 export default function LoginPage() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [signIn, { isLoading, error }] = useSignInMutation();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +31,10 @@ export default function LoginPage() {
 
   const go = async (id, pw) => {
     const res = await signIn({ login: id, password: pw });
-    if (res.data) router.replace(ROLES[res.data.account.role].home);
+    if (res.data) {
+      dispatch(messApi.util.resetApiState());
+      router.replace(ROLES[res.data.account.role].home);
+    }
   };
 
   return (

@@ -8,8 +8,8 @@ export const messApi = createApi({
   tagTypes: ['Session', 'Today', 'Menu', 'Sale', 'Wallet', 'Entry', 'Kitchen', 'Tickets', 'Inspections', 'Overview', 'Accounts', 'Rules', 'Clock', 'Bhandar', 'Notes'],
   endpoints: (b) => ({
     session: b.query({ query: () => '/session', providesTags: ['Session'] }),
-    signIn: b.mutation({ query: (body) => ({ url: '/session', method: 'POST', body }) }),
-    signOut: b.mutation({ query: () => ({ url: '/session', method: 'DELETE' }) }),
+    signIn: b.mutation({ query: (body) => ({ url: '/session', method: 'POST', body }), invalidatesTags: ['Session'] }),
+    signOut: b.mutation({ query: () => ({ url: '/session', method: 'DELETE' }), invalidatesTags: ['Session'] }),
 
     today: b.query({ query: () => '/student/today', providesTags: ['Today'] }),
     ratingSummary: b.query({ query: (mess) => (mess ? `/ratings/summary?mess=${mess}` : '/ratings/summary'), providesTags: ['Today'] }),
